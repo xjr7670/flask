@@ -9,6 +9,7 @@ from flask_wtf import Form
 from flask_sqlalchemy import SQLAlchemy
 from wtforms import StringField, SubmitField
 from wtforms.validators import Required 
+from flask_migrate import Migrate, MigrateCommand
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -29,6 +30,8 @@ manager = Manager(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+manager.add_command('db', MigrateCommand)
 
 # 为shell命令添加一个上下文
 # 这样就不用在每次启动shell时都要导入数据库实例和模型
