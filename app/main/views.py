@@ -4,6 +4,7 @@ from . import main
 from ..models import User, Role
 from .forms import EditProfileForm, EditProfileAdminForm
 from ..decorators import admin_required
+from .. import db
 
 
 @main.route('/')
