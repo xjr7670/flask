@@ -128,7 +128,7 @@ def unfollow(username):
     flash('You are not following %s anymore.' % username)
     return redirect(url_for('.user', username=username))
 
-@main.route('followers/<username>')
+@main.route('/followers/<username>')
 def followers(username):
     user = User.query.filter_by(username=username).first()
     if user is None:
@@ -140,7 +140,7 @@ def followers(username):
     return render_template('followers.html', user=user, title="Followers of", endpoint='.followers', pagination=pagination, follows=follows)
 
 
-@main.route('followed-by/<username>')
+@main.route('/followed-by/<username>')
 def followed_by(username):
     user = User.query.filter_by(username=username).first()
     if user is None:
