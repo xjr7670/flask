@@ -13,7 +13,7 @@
     {% if follow.user != user %}
     <tr>
         <td>
-            <a href="{{ url_for('.user', username=follow.user.username }}">
+            <a href="{{ url_for('.user', username=follow.user.username) }}">
                 <img class="img-rounded" src="{{ follow.user.gravatar(size=32) }}">
                 {{ follow.user.username }}
             </a>
@@ -24,6 +24,6 @@
     {% endfor %}
 </table>
 <div class="pagination">
-    {{ macros.pagination_widget(pagination, endpoint, username=user.username }}
+    {{ macros.pagination_widget(pagination, endpoint, username=user.username) }}
 </div>
 {% endblock %}

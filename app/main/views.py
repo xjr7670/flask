@@ -118,7 +118,7 @@ def follow(username):
 @permission_required(Permission.FOLLOW)
 def unfollow(username):
     user = User.query.filter_by(username=username).first()
-    if user in None:
+    if user is None:
         flash('Invalid user')
         return redirect(url_for('.index'))
     if not current_user.is_following(user):
